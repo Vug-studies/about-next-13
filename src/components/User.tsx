@@ -1,6 +1,6 @@
-import { Repo } from './Repo'
-
 export async function User() {
+  await new Promise((resolve) => setTimeout(resolve, 5000))
+
   const response = await fetch('https://api.github.com/users/namevug', {
     cache: 'no-store',
   })
@@ -11,8 +11,6 @@ export async function User() {
     <div>
       <h1>User</h1>
       <pre>{JSON.stringify(user, null, 2)}</pre>
-      {/* @ts-expect-error Async Server Component */}
-      <Repo />
     </div>
   )
 }
