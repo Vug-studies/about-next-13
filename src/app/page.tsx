@@ -1,20 +1,11 @@
-import Link from 'next/link'
+import { User } from '@/components/User'
 
-// revalidate
-export const revalidate = 30
-
-export default async function Home() {
-  const response = await fetch('https://api.github.com/users/namevug', {
-    cache: 'no-store',
-  })
-
-  const user = await response.json()
-
+export default function Home() {
   return (
     <div>
-      <h1>Olá vug</h1>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
-      <Link href={'/app'}>Dashboard</Link>
+      <h1>Home</h1>
+      {/* @ts-expect-error Async Server Component */}
+      <User />
     </div>
   )
 }
