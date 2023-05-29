@@ -4,6 +4,13 @@ interface AppLayoutProps {
   children: ReactNode
 }
 
+export const metadata = {
+  title: {
+    default: 'Rocketseat',
+    template: '%s | Rocketseat',
+  },
+}
+
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div>
